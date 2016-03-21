@@ -17,34 +17,25 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::get('/categories', [
-        'uses' => 'CategoryController@index',
-        'as' => 'category.index'
-    ]);
+    Route::get('/categories', 'CategoryController@index')
+        ->name('category.index');
 
-    Route::get('/category', [
-        'uses' => 'CategoryController@create',
-        'as' => 'category.create'
-    ]);
-    Route::post('/category', [
-        'uses' => 'CategoryController@store',
-        'as' => 'category.store'
-    ]);
+    Route::get('/category', 'CategoryController@create')
+        ->name('category.create');
 
-    Route::get('/ecategory/{id}/edit', [
-        'uses' => 'CategoryController@edit',
-        'as' => 'category.edit'
-    ])->where('id', '[0-9]+');
+    Route::post('/category', 'CategoryController@store')
+        ->name('category.store');
 
-    Route::post('/category/{id}/edit', [
-        'uses' => 'CategoryController@update',
-        'as' => 'category.update'
-    ])->where('id', '[0-9]+');
+    Route::get('/category/{id}/edit', 'CategoryController@edit')
+        ->where('id', '[0-9]+')
+        ->name('category.edit');
 
-    Route::get('/category/{id}/delete', [
-        'uses' => 'CategoryController@destroy',
-        'as' => 'category.destroy'
-    ])->where('id', '[0-9]+');
+    Route::post('/category/{id}/edit', 'CategoryController@update')
+        ->where('id', '[0-9]+')
+        ->name('category.update');
 
+    Route::get('/category/{id}/delete', 'CategoryController@destroy')
+        ->where('id', '[0-9]+')
+        ->name('category.destroy');
 
 });
