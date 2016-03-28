@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/event/{id}', [
+    'uses' => 'EventController@show',
+    'as' => 'welcome.event.show'
+])->where('id', '[0-9]+');
+
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/categories', 'CategoryController@index')
@@ -37,5 +42,40 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/category/{id}/delete', 'CategoryController@destroy')
         ->where('id', '[0-9]+')
         ->name('category.destroy');
+
+});
+
+Route::group(['prefix' => 'profile'], function () {
+
+    Route::get('/my-events', [
+        'uses' => 'EventController@index',
+        'as' => 'user.events'
+    ]);
+
+    Route::get('/event', [
+        'uses' => 'EventController@create',
+        'as' => 'event.create'
+    ]);
+
+    Route::post('/event', [
+        'uses' => 'EventController@store',
+        'as' => 'event.store'
+    ]);
+
+    Route::get('/my-events/{id}', [
+        'uses' => 'EventController@edit',
+        'as' => 'event.edit'
+    ])->where('id', '[0-9]+');
+
+    Route::post('/my-events/{id}', [
+        'uses' => 'EventController@update',
+        'as' => 'event.update'
+    ])->where('id', '[0-9]+');
+
+    Route::get('/my-events/{id}/delete', [
+        'uses' => 'EventController@destroy',
+        'as' => 'event.destroy'
+    ])->where('id', '[0-9]+');
+
 
 });
