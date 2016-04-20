@@ -14,9 +14,17 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
+        DB::table('users')->insert([
+            'name' => 'Plus',
+            'email' => 'admin@email.com',
+            'role' => 'admin',
+            'password' => bcrypt('secret')
+        ]);
+
+        $this->call(UserTableSeeder::class);
+        $this->call(CategoryTableSeeder::class);
         $this->call(EventTableSeeder::class);
-        
+
         Model::reguard();
     }
 }

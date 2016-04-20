@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class EventTableSeeder extends Seeder
+class CategoryTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class EventTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Event::class,30)->create();
+        factory(App\Category::class,3)->create();
     }
 }
