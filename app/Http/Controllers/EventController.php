@@ -14,6 +14,12 @@ use App\Category;
 
 class EventController extends Controller
 {
+    public function getIndex()
+    {
+        $events = Event::paginate(5);
+        return view('welcome', ['events' => $events] );
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -1,45 +1,52 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layout.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title', 'MeetPlus')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('content')
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+		<div class="row">
+			<section class="posts col-md-9">
+				<div class="miga-de-pan">
+					<ol class="breadcrumb">
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Categorias</a></li>
+						<li class="active">Diseño Web</li>
+					</ol>
+				</div>
+                <h2>Eventos</h2>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+                    @if(! $events->isEmpty())
+                        @foreach($events as $event)
+                            <article class="post clearfix">
+                                <a href="#" class="thumb pull-left">
+            						<img class="img-thumbnail" src="{{url('assets/img/img1.jpg')}}" alt="">
+            					</a>
+                                <h3 class="post-title">
+            						<a href="#">{{ $event->name }}</a>
+            					</h3>
+                                <p><span class="post-fecha">26 de Enero de 2015</span> En <span class="post-autor">{{ $event->place }}</span> por <span class="post-autor"><a href="#">Carlos Arturo</a></span></p>
+                            <li>
+                                <p class="post-contenido text-justify">
+            						{{ $event->description }}
+            					</p>
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+            					<div class="contenedor-botones">
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
-    </body>
-</html>
+									{!! link_to_route('welcome.event.show', $title = 'Leer Mas', $parameters = $event->id, $attributes = ['class' => 'btn btn-primary'] ) !!}
+            						<a href="#" class="btn btn-success">Comentarios <span class="badge">20</span></a>
+            					</div>
+                            </article>
+                        @endforeach
+                    @else
+                        <p>No hay eventos para mostrar</p>
+                    @endif
+
+				<nav>
+					<div class="center-block">
+						<ul class="pagination">
+							{!! $events->render() !!}
+						</ul>
+					</div>
+				</nav>
+
+@endsection
