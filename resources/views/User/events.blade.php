@@ -1,5 +1,7 @@
 @extends('layout.master')
 
+@section('title', 'Mis eventos')
+
 @section('content')
 
     <div class="grupo">
