@@ -27,7 +27,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::paginate(5);
+        return view('User.events', ['events' => $events] );
     }
 
     /**
