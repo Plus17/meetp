@@ -24,7 +24,7 @@
                                 <h3 class="post-title">
             						<a href="#">{{ $event->name }}</a>
             					</h3>
-                                <p><span class="post-fecha">26 de Enero de 2015</span> En <span class="post-autor">{{ $event->place }}</span> por <span class="post-autor"><a href="#">Carlos Arturo</a></span></p>
+                                <p><span class="post-fecha">26 de Enero de 2015</span> En <span class="post-autor">{{ $event->place }}</span> por <span class="post-autor"><a href="#">{{ $event->user->name }}</a></span></p>
                             <li>
                                 <p class="post-contenido text-justify">
             						{{ $event->description }}

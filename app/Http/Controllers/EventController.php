@@ -16,7 +16,7 @@ class EventController extends Controller
 {
     public function getIndex()
     {
-        $events = Event::paginate(5);
+        $events = Event::with('user')->paginate(5);
         return view('welcome', ['events' => $events] );
     }
 
@@ -65,12 +65,10 @@ class EventController extends Controller
       */
      public function show($id)
      {
-         $user = 1;
+
          $event = Event::findOrFail($id);
-         if (empty($event)) {
-             $event = null;
-         }
-         return view('event.show', ['event' => $event, 'user' => $user ] );
+
+         return view('Event.show', ['event' => $event] );
      }
 
      /**
@@ -81,7 +79,7 @@ class EventController extends Controller
       */
      public function edit($id)
      {
-         $user = 1;
+         
          $event = Event::findOrFail($id);
          $categories = Category::lists('name', 'id');
          return view('event.edit', ['event' => $event, 'categories' => $categories, 'user' => $user ] );

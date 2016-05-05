@@ -17,7 +17,7 @@
 
             <div class="caja base-100 movil-100 tablet-70 web-70">
                 <p class="post-title">Detalles del evento:</p>
-                <p><span class="post-fecha">26 de Enero de 2015</span> En <span class="post-autor">{{ $event->place }}</span> por <span class="post-autor"><a href="#">Carlos Arturo</a></span></p>
+                <p><span class="post-fecha">26 de Enero de 2015</span> En <span class="post-autor">{{ $event->place }}</span> por <span class="post-autor"><a href="#">{{ $event->user->name }}</a></span></p>
 
                 <p class="post-contenido text-justify">
                     {{ $event->description }}
