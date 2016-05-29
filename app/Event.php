@@ -8,7 +8,7 @@ class Event extends Model
 {
   protected $table = 'events';
 
-  protected $fillable = ['name', 'place', 'description', 'category_id'];
+  protected $fillable = ['name', 'place', 'description', 'category_id', 'user_id'];
 
   public function category()
   {

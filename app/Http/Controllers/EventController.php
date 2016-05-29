@@ -50,8 +50,7 @@ class EventController extends Controller
       */
      public function store(EventRequest $request)
      {
-         //dd($request->all());
-
+         $request['user_id'] = 1;
          Event::create($request->all());
          $request->session()->flash('message', 'Evento registrado exitosamente!');
          return redirect()->route('event.create');
@@ -79,7 +78,7 @@ class EventController extends Controller
       */
      public function edit($id)
      {
-         
+
          $event = Event::findOrFail($id);
          $categories = Category::lists('name', 'id');
          return view('event.edit', ['event' => $event, 'categories' => $categories, 'user' => $user ] );
@@ -94,6 +93,7 @@ class EventController extends Controller
       */
      public function update(EventRequest $request, $id)
      {
+         $request['user_id'] = 1;
          $event = Event::findOrFail($id);
          $event->fill($request->all());
          $event->save();
