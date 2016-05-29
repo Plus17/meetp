@@ -42,13 +42,11 @@
 						<li><a href="#">Blog</a></li>
 						<li><a href="#">Contacto</a></li>
 
-                        @if(!empty(Auth::user()->name))
-                            <li>{{Auth::user()->name}}</li>
-                            <li><a href="{{ url('auth/logout') }}">Logout</a></li>
-                        @else
+
+
                             <li><a href="{{ url('auth/login') }}">Login</a></li>
                             <li><a href="#">Registro</a></li>
-                        @endif
+                        
 
 					</ul>
 
