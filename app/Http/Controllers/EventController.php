@@ -21,6 +21,13 @@ class EventController extends Controller
         return view('welcome', ['events' => $events] );
     }
 
+    public function indexByCategory($idCategory)
+    {
+        $events = Category::find($idCategory)->events()->paginate(5);
+
+        return view('Event.byCategory', ['events' => $events]);
+    }
+
     /**
      * Display a listing of the resource.
      *

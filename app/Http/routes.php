@@ -21,6 +21,10 @@ Route::get('/event/{id}', [
     'as' => 'welcome.event.show'
 ])->where('id', '[0-9]+');
 
+Route::get('/category/{id}', 'EventController@indexByCategory')
+      ->where('id', '[0-9]+')
+      ->name('event.category.list');
+
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/categories', 'CategoryController@index')

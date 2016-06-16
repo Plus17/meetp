@@ -34,7 +34,7 @@
 							<ul class="dropdown-menu" role="menu">
                   @if ($categoryList)
                     @foreach ($categoryList as $categoryMenu)
-                      <li><a href="#">{{ $categoryMenu->name }}</a></li>
+                      <li><a href="{{ route('event.category.list', $categoryMenu->id) }}">{{ $categoryMenu->name }}</a></li>
                     @endforeach
                   @endif
 							</ul>
