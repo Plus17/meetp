@@ -32,9 +32,11 @@
 								Categorias <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-                @foreach ($categories as $category)
-                  <li><a href="#">{{ $category->name }}</a></li>
-                @endforeach
+                  @if ($categoryList)
+                    @foreach ($categoryList as $categoryMenu)
+                      <li><a href="#">{{ $categoryMenu->name }}</a></li>
+                    @endforeach
+                  @endif
 							</ul>
 						</li>
 						<li><a href="#">Blog</a></li>

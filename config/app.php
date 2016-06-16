@@ -150,6 +150,11 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         'Barryvdh\Debugbar\ServiceProvider',
 
+        /*
+        * App Service Providers...
+        */
+        App\Providers\ViewsServiceProvider::class,
+
     ],
 
     /*

@@ -17,9 +17,8 @@ class EventController extends Controller
     public function getIndex()
     {
         $events = Event::with('user')->paginate(5);
-        $categories = Category::all();
 
-        return view('welcome', ['events' => $events, 'categories' => $categories] );
+        return view('welcome', ['events' => $events] );
     }
 
     /**
@@ -30,9 +29,8 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::paginate(5);
-        $categories = Category::all();
 
-        return view('User.events', ['events' => $events, 'categories' => $categories] );
+        return view('User.events', ['events' => $events] );
     }
 
     /**
@@ -43,6 +41,7 @@ class EventController extends Controller
      public function create()
      {
          $categories = Category::lists('name', 'id');
+
          return view('Event.create',['categories' => $categories]);
      }
 
@@ -56,7 +55,9 @@ class EventController extends Controller
      {
          $request['user_id'] = 1;
          Event::create($request->all());
+
          $request->session()->flash('message', 'Evento registrado exitosamente!');
+
          return redirect()->route('event.create');
      }
 
@@ -69,9 +70,8 @@ class EventController extends Controller
      public function show($id)
      {
          $event = Event::findOrFail($id);
-         $categories = Category::all();
 
-         return view('Event.show', ['event' => $event, 'categories' => $categories] );
+         return view('Event.show', ['event' => $event] );
      }
 
      /**
@@ -82,9 +82,9 @@ class EventController extends Controller
       */
      public function edit($id)
      {
-
          $event = Event::findOrFail($id);
          $categories = Category::lists('name', 'id');
+
          return view('event.edit', ['event' => $event, 'categories' => $categories, 'user' => $user ] );
      }
 
