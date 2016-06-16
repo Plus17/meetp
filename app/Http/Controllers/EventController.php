@@ -89,10 +89,11 @@ class EventController extends Controller
       */
      public function edit($id)
      {
-         $event = Event::findOrFail($id);
+         $event = Event::find($id);
          $categories = Category::lists('name', 'id');
-
-         return view('event.edit', ['event' => $event, 'categories' => $categories, 'user' => $user ] );
+         $user = $event->user->id;
+         
+         return view('Event.edit', ['event' => $event, 'categories' => $categories, 'user' => $user ] );
      }
 
      /**
