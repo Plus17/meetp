@@ -17,7 +17,9 @@ class EventController extends Controller
     public function getIndex()
     {
         $events = Event::with('user')->paginate(5);
-        return view('welcome', ['events' => $events] );
+        $categories = Category::all();
+
+        return view('welcome', ['events' => $events, 'categories' => $categories] );
     }
 
     /**
@@ -28,7 +30,9 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::paginate(5);
-        return view('User.events', ['events' => $events] );
+        $categories = Category::all();
+
+        return view('User.events', ['events' => $events, 'categories' => $categories] );
     }
 
     /**
@@ -64,10 +68,10 @@ class EventController extends Controller
       */
      public function show($id)
      {
-
          $event = Event::findOrFail($id);
+         $categories = Category::all();
 
-         return view('Event.show', ['event' => $event] );
+         return view('Event.show', ['event' => $event, 'categories' => $categories] );
      }
 
      /**

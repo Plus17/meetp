@@ -32,11 +32,9 @@
 								Categorias <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Categoria #1</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Categoria #2</a></li>
-								<li><a href="#">Categoria #3</a></li>
-								<li><a href="#">Categoria #4</a></li>
+                @foreach ($categories as $category)
+                  <li><a href="#">{{ $category->name }}</a></li>
+                @endforeach
 							</ul>
 						</li>
 						<li><a href="#">Blog</a></li>
@@ -46,7 +44,7 @@
 
                             <li><a href="{{ url('auth/login') }}">Login</a></li>
                             <li><a href="#">Registro</a></li>
-                        
+
 
 					</ul>
 
