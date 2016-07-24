@@ -149,8 +149,9 @@ return [
         */
         Collective\Html\HtmlServiceProvider::class,
         'Barryvdh\Debugbar\ServiceProvider',
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
 
-        /*
+	/*
         * App Service Providers...
         */
         App\Providers\ViewsServiceProvider::class,
