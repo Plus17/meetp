@@ -13,12 +13,13 @@
 				</div>
                 <h2>Eventos</h2>
 
-                    @if(! $events->isEmpty())
-                        @foreach($events as $event)
+{{-- @if($events) --}}
+
+                        @foreach($events->events as $event)
                             <article class="post clearfix">
                                 <a href="#" class="thumb pull-left">
-            						<img class="img-thumbnail" src="{{url('assets/img/img1.jpg')}}" alt="">
-            					</a>
+            				<img class="img-thumbnail" src="{{url('assets/img/img1.jpg')}}" alt="">
+            			</a>
                                 <h3 class="post-title">
             						<a href="#">{{ $event->name }}</a>
             					</h3>
@@ -35,14 +36,14 @@
             					</div>
                             </article>
                         @endforeach
-                    @else
+{{-- @else
                         <p>No hay eventos para mostrar</p>
-                    @endif
+                    @endif--}}
 
 				<nav>
 					<div class="center-block">
 						<ul class="pagination">
-							{!! $events->render() !!}
+						{{--	{!! $events->render() !!} --}}
 						</ul>
 					</div>
 				</nav>

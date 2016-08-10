@@ -16,6 +16,7 @@ class Categories extends Migration
           $table->engine = 'InnoDB';
           $table->increments('id');
           $table->string('name')->unique();
+	  $table->string('slug')->unique();
           $table->timestamps();
       });
     }

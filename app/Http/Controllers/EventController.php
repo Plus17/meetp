@@ -21,11 +21,11 @@ class EventController extends Controller
         return view('welcome', ['events' => $events] );
     }
 
-    public function indexByCategory($idCategory)
+    public function indexByCategory($slugCategory)
     {
-        $events = Category::find($idCategory)->events()->paginate(5);
+    	$events = Category::where('slug', $slugCategory)->first();
 
-        return view('Event.byCategory', ['events' => $events]);
+    	return view('Event.byCategory', ['events' => $events]);
     }
 
     /**
@@ -92,7 +92,7 @@ class EventController extends Controller
          $event = Event::find($id);
          $categories = Category::lists('name', 'id');
          $user = $event->user->id;
-         
+
          return view('Event.edit', ['event' => $event, 'categories' => $categories, 'user' => $user ] );
      }
 
