@@ -4,8 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        {!! Html::style('assets/css/index.css') !!}
-        {!! Html::style('assets/css/ed-grid.css') !!}
+        @section('css')
+            {!! Html::style('assets/css/index.css') !!}
+            {!! Html::style('assets/css/ed-grid.css') !!}
+        @show
 
         <title>@yield('title')</title>
 
@@ -32,21 +34,18 @@
 								Categorias <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
-                  @if ($categoryList)
-                    @foreach ($categoryList as $categoryMenu)
-                      <li><a href="{{ route('event.category.list', $categoryMenu->slug) }}">{{ $categoryMenu->name }}</a></li>
-                    @endforeach
-                  @endif
+                                  @if ($categoryList)
+                                    @foreach ($categoryList as $categoryMenu)
+                                      <li><a href="{{ route('event.category.list', $categoryMenu->slug) }}">{{ $categoryMenu->name }}</a></li>
+                                    @endforeach
+                                  @endif
 							</ul>
 						</li>
 						<li><a href="#">Blog</a></li>
 						<li><a href="#">Contacto</a></li>
 
-
-
-                            <li><a href="{{ url('auth/login') }}">Login</a></li>
-                            <li><a href="#">Registro</a></li>
-
+                        <li><a href="{{ url('auth/login') }}">Login</a></li>
+                        <li><a href="#">Registro</a></li>
 
 					</ul>
 
@@ -58,7 +57,6 @@
 							<span class="glyphicon glyphicon-search"></span>
 						</button>
 					</form>
-
 
 				</div>
 			</div>
@@ -76,8 +74,10 @@
         @yield('content')
     </section>
 
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    @section('js')
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    @show
 
     </body>
 </html>
