@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('css')
+	@parent
+@endsection
+
 @section('title', 'Mis eventos')
 
 @section('content')
@@ -48,4 +52,8 @@
             {!! $events->render() !!}
         </div>
     </div>
+@endsection
+
+@section('js')
+	@parent
 @endsection

@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('css')
+	@parent
+@endsection
+
 @section('title', 'Agregar categoria')
 
 @section('content')
@@ -12,4 +16,8 @@
             @include('Category.form.category')
         {!! Form::close() !!}
     @endif
+@endsection
+
+@section('js')
+	@parent
 @endsection

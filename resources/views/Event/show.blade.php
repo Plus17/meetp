@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('css')
+	@parent
+@endsection
+
 @section('title', 'Evento - '.$event->name)
 
 @section('content')
@@ -70,4 +74,8 @@
 
     </div>
 
+@endsection
+
+@section('js')
+	@parent
 @endsection

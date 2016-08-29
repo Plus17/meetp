@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('css')
+	@parent
+@endsection
+
 @section('title', 'MeetPlus')
 
 @section('content')
@@ -49,4 +53,8 @@
 					</div>
 				</nav>
 
+@endsection
+
+@section('js')
+	@parent
 @endsection

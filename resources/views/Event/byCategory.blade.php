@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('css')
+	@parent
+@endsection
+
 @section('content')
 
 		<div class="row">
@@ -48,4 +52,8 @@
 					</div>
 				</nav>
 
+@endsection
+
+@section('js')
+	@parent
 @endsection

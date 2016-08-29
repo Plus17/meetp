@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('css')
+	@parent
+@endsection
+
 @section('title', 'Categorias')
 
 @section('content')
@@ -42,4 +46,8 @@
         </div>
     </div>
 
+@endsection
+
+@section('js')
+	@parent
 @endsection
