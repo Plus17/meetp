@@ -16,16 +16,23 @@ Route::get('/', [
     'as' => 'event.index'
 ]);
 
+Route::get('/home', function() {
+	return redirect('/');
+});
+
 Route::get('/event/{id}', [
     'uses' => 'EventController@show',
     'as' => 'welcome.event.show'
 ])->where('id', '[0-9]+');
 
-Route::get('/category/{id}', 'EventController@indexByCategory')
-      ->where('id', '[0-9]+')
+Route::get('/category/{slug}', 'EventController@indexByCategory')
+      ->where('slug', '[a-z0-9-]+$')
       ->name('event.category.list');
 
 Route::group(['prefix' => 'admin'], function () {
+    
+    Route::get('/','AdminController@index')
+        ->name('admin.index');
 
     Route::get('/categories', 'CategoryController@index')
         ->name('category.index');
@@ -84,3 +91,7 @@ Route::group(['prefix' => 'profile'], function () {
 
 
 });
+
+Route::auth();
+
+//Route::get('/home', 'HomeController@index');

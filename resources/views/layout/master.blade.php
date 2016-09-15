@@ -44,8 +44,8 @@
 						<li><a href="#">Blog</a></li>
 						<li><a href="#">Contacto</a></li>
 
-                        <li><a href="{{ url('auth/login') }}">Login</a></li>
-                        <li><a href="#">Registro</a></li>
+                        <li><a href="{{ url('login') }}">Login</a></li>
+                        <li><a href="{{ url('register') }}">Registro</a></li>
 
 					</ul>
 
