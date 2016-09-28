@@ -59,36 +59,29 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'profile'], function () {
 
-    Route::get('/my-events', [
-        'uses' => 'EventController@index',
-        'as' => 'user.events'
-    ]);
+	Route::get('/', 'UserController@index')
+		->name('user.index');
+	
+    Route::get('/my-events', 'EventController@index')
+    	->name('user.events');
 
-    Route::get('/event', [
-        'uses' => 'EventController@create',
-        'as' => 'event.create'
-    ]);
+    Route::get('/event', 'EventController@create')
+    	->name('event.create');
 
-    Route::post('/event', [
-        'uses' => 'EventController@store',
-        'as' => 'event.store'
-    ]);
+    Route::post('/event', 'EventController@store')
+    	->name('event.store');
 
-    Route::get('/my-events/{id}', [
-        'uses' => 'EventController@edit',
-        'as' => 'event.edit'
-    ])->where('id', '[0-9]+');
+    Route::get('/my-events/{id}', 'EventController@edit')
+    	->where('id', '[0-9]+')
+    	->name('event.edit');
 
-    Route::post('/my-events/{id}', [
-        'uses' => 'EventController@update',
-        'as' => 'event.update'
-    ])->where('id', '[0-9]+');
+    Route::post('/my-events/{id}', 'EventController@update')
+    	->where('id', '[0-9]+')
+    	->name('event.update');
 
-    Route::get('/my-events/{id}/delete', [
-        'uses' => 'EventController@destroy',
-        'as' => 'event.destroy'
-    ])->where('id', '[0-9]+');
-
+    Route::get('/my-events/{id}/delete', 'EventController@destroy')
+    	->where('id', '[0-9]+')
+    	->name('event.destroy');
 
 });
 

@@ -43,10 +43,12 @@
 						</li>
 						<li><a href="#">Blog</a></li>
 						<li><a href="#">Contacto</a></li>
-
-                        <li><a href="{{ url('login') }}">Login</a></li>
-                        <li><a href="{{ url('register') }}">Registro</a></li>
-
+						@if (Auth::check()) 
+							<li><a href="{{ Auth::logout()  }}">Logout</a></li> 
+						@else	
+                        	<li><a href="{{ url('login') }}">Login</a></li>
+                        	<li><a href="{{ url('register') }}">Registro</a></li>
+						@endif
 					</ul>
 
 					<form action="" class="navbar-form navbar-right" role="search">
