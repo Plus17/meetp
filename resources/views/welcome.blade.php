@@ -57,4 +57,15 @@
 
 @section('js')
 	@parent
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Typist/1.2/typist.min.js"></script>
+	<script>
+		var typist;
+
+		typist = document.querySelector("#typist-element");
+
+		new Typist(typist, {
+			letterInterval: 60,
+			textInterval: 3000
+		});
+	</script>
 @endsection

@@ -56,4 +56,9 @@
 
 @section('js')
 	@parent
+	<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js"></script>
+	<script>
+		window.sr = ScrollReveal();
+		sr.reveal('.post', { duration: 2000 }, 50);
+	</script>
 @endsection

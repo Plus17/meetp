@@ -66,7 +66,7 @@
     <section class="jumbotron">
 		<div class="container">
 			<h1>MeetPlus</h1>
-			<p>Eventos para Geeks - Encuentra a quien va al mismo evento que tu</p>
+			<p>Eventos para Geeks - Encuentra eventos <strong id="typist-element" data-typist="en tu ciudad">cerca de ti</strong></p>
 		</div>
 	</section>
 

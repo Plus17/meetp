@@ -49,3 +49,6 @@
 		margin-right: 0;
 	}
 }
+.selectedText {
+	  background: #f00;
+}
